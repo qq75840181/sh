@@ -585,7 +585,7 @@ install_select() {
         hint="${software[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Please enter a number (Default ${software[0]}):" selected
+    read -p "推荐选择1 (Default ${software[0]}):" selected
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
         1|2|3|4)
@@ -602,9 +602,9 @@ install_select() {
 }
 
 install_prepare_password() {
-    echo "Please enter password for ${software[${selected}-1]}"
-    read -p "(Default password: teddysun.com):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
+    echo "请设置SS连接密码 ${software[${selected}-1]}"
+    read -p "(请设置SS连接密码:):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="75840181"
     echo
     echo "password = ${shadowsockspwd}"
     echo
@@ -614,8 +614,8 @@ install_prepare_port() {
     while true
     do
     dport=$(shuf -i 9000-19999 -n 1)
-    echo -e "Please enter a port for ${software[${selected}-1]} [1-65535]"
-    read -p "(Default port: ${dport}):" shadowsocksport
+    echo -e "请设置SS连接端口 ${software[${selected}-1]} [1-65535]"
+    read -p "(推荐设置8989: ${dport}):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
@@ -633,7 +633,7 @@ install_prepare_port() {
 install_prepare_cipher() {
     while true
     do
-    echo -e "Please select stream cipher for ${software[${selected}-1]}:"
+    echo -e "请设置加密方式 ${software[${selected}-1]}:"
 
     if   [[ "${selected}" == "1" || "${selected}" == "4" ]]; then
         for ((i=1;i<=${#common_ciphers[@]};i++ )); do
@@ -644,7 +644,7 @@ install_prepare_cipher() {
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
-            echo -e "[${red}Error${plain}] Please enter a number"
+            echo -e "[${red}Error${plain}] 推荐选择第7个"
             continue
         fi
         if [[ "$pick" -lt 1 || "$pick" -gt ${#common_ciphers[@]} ]]; then
