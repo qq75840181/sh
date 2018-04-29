@@ -580,7 +580,7 @@ install_select() {
     clear
     while true
     do
-    echo  "Which Shadowsocks server you'd select:"
+    echo  "请选择SS语言(推荐输入1):"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
