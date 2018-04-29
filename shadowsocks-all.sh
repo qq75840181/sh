@@ -640,11 +640,11 @@ install_prepare_cipher() {
             hint="${common_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Which cipher you'd select(Default: ${common_ciphers[0]}):" pick
+        read -p "推荐选择第7个(Default: ${common_ciphers[0]}):" pick
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
-            echo -e "[${red}Error${plain}] 推荐选择第7个"
+            echo -e "[${red}Error${plain}] Please enter a number"
             continue
         fi
         if [[ "$pick" -lt 1 || "$pick" -gt ${#common_ciphers[@]} ]]; then
@@ -657,7 +657,7 @@ install_prepare_cipher() {
             hint="${r_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Which cipher you'd select(Default: ${r_ciphers[1]}):" pick
+        read -p "推荐选择第7个(Default: ${r_ciphers[1]}):" pick
         [ -z "$pick" ] && pick=2
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
@@ -674,7 +674,7 @@ install_prepare_cipher() {
             hint="${go_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Which cipher you'd select(Default: ${go_ciphers[0]}):" pick
+        read -p "推荐选择第7个(Default: ${go_ciphers[0]}):" pick
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
