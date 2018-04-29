@@ -527,7 +527,7 @@ fi
 
 install_dependencies() {
     if check_sys packageManager yum; then
-        echo -e "[${green}Info${plain}] Checking the EPEL repository..."
+        echo -e "[${green}Info${plain}] 搭建进行中，请耐心等待，请不要点任何按键..."
         if [ ! -f /etc/yum.repos.d/epel.repo ]; then
             yum install -y -q epel-release
         fi
