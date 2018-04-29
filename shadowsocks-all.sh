@@ -818,7 +818,7 @@ install_prepare() {
     fi
 
     echo
-    echo "Press any key to start...or Press Ctrl+C to cancel"
+    echo "请点击回车进行搭建...或点 Ctrl+C 取消"
     char=`get_char`
 
 }
