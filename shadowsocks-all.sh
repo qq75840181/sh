@@ -615,7 +615,7 @@ install_prepare_port() {
     do
     dport=$(shuf -i 9000-19999 -n 1)
     echo -e "请设置SS连接端口 ${software[${selected}-1]} [1-65535]"
-    read -p "(推荐设置8989: ${dport}):" shadowsocksport
+    read -p "(推荐设置8989端口):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
